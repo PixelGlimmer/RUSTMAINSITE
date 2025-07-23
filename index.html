@@ -4,8 +4,101 @@
   <meta charset="UTF-8">
   <title>RUST MAIN - Vanilla x2</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Orbitron', sans-serif;
+      background-color: #0a0a0a;
+      color: #ff1a1a;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: auto;
+      padding: 20px;
+      background: #1a1a1a;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #ff1a1a44;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 2.5em;
+      text-shadow: 0 0 10px #ff1a1a, 0 0 20px #ff1a1a;
+      margin-bottom: 20px;
+    }
+
+    p {
+      line-height: 1.6;
+      font-size: 1.1em;
+    }
+
+    .details {
+      margin-top: 20px;
+    }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin: 30px 0;
+      gap: 10px;
+    }
+
+    .btn {
+      background: transparent;
+      color: #ff1a1a;
+      border: 2px solid #ff1a1a;
+      padding: 12px 24px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-size: 1em;
+      transition: all 0.3s;
+    }
+
+    .btn:hover {
+      background-color: #ff1a1a;
+      color: #0a0a0a;
+      box-shadow: 0 0 10px #ff1a1a;
+    }
+
+    .info {
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      font-size: 0.9em;
+      color: #888;
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 1.8em;
+      }
+
+      .btn {
+        padding: 10px;
+        font-size: 0.9em;
+        width: 100%;
+        text-align: center;
+      }
+
+      .buttons {
+        flex-direction: column;
+        align-items: stretch;
+      }
+    }
+  </style>
 </head>
 <body>
   <div class="container">
@@ -19,7 +112,7 @@
       <p><strong>⚔️ Ускоренная добыча:</strong> x2 ресурсы, x2 фарм</p>
       <p><strong>🛡️ Активная администрация 24/7</strong></p>
       <p><strong>🎯 Идеально для соло/дуо/трио</strong></p>
-      <p><strong>‼️ Плагины установлены только для админ панеле и x2</strong></p>
+      <p><strong>‼️ Плагины установлены только для админ панели и x2</strong></p>
     </div>
 
     <div class="buttons">
