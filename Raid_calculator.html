@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Калькулятор рейда - RUST MAIN</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap');
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: #0a0a0a;
+      color: #ff1a1a;
+      font-family: 'Orbitron', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      min-height: 100vh;
+      padding: 30px 20px;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2.5em;
+      text-shadow: 0 0 10px #ff1a1a, 0 0 20px #ff1a1a;
+      margin-bottom: 20px;
+    }
+
+    .calculator {
+      background: #1a1a1a;
+      padding: 20px;
+      border-radius: 10px;
+      max-width: 600px;
+      width: 100%;
+      box-shadow: 0 0 10px #ff1a1a66;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 1.2em;
+    }
+
+    select {
+      width: 100%;
+      padding: 10px;
+      border-radius: 5px;
+      border: 2px solid #ff1a1a;
+      background: #0a0a0a;
+      color: #ff1a1a;
+      font-size: 1em;
+      outline: none;
+    }
+
+    .result {
+      margin-top: 25px;
+      background: #111;
+      padding: 15px;
+      border-radius: 8px;
+      font-size: 1.1em;
+      line-height: 1.6;
+      box-shadow: inset 0 0 10px #ff1a1a33;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 12px 30px;
+      background-color: transparent;
+      color: #ff1a1a;
+      border: 2px solid #ff1a1a;
+      border-radius: 5px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background: #ff1a1a;
+      color: #0a0a0a;
+      box-shadow: 0 0 10px #ff1a1a, 0 0 20px #ff1a1a;
+    }
+  </style>
+</head>
+<body>
+  <h1>💥 Калькулятор Рейда</h1>
+  <div class="calculator">
+    <label for="target">🎯 Цель рейда:</label>
+    <select id="target">
+      <option value="sheet_door">Металлическая дверь (250 HP)</option>
+      <option value="garage_door">Гаражная дверь (600 HP)</option>
+      <option value="armored_door">Бронированная дверь (800 HP)</option>
+      <option value="wood_wall">Деревянная стена (200 HP)</option>
+      <option value="stone_wall">Каменная стена (500 HP)</option>
+      <option value="metal_wall">Металлическая стена (1000 HP)</option>
+      <option value="armored_wall">Бронированная стена (2000 HP)</option>
+    </select>
+
+    <div class="result" id="result">
+      🔍 Выберите цель для расчёта.
+    </div>
+  </div>
+
+  <a class="btn" href="index.html">← Назад</a>
+
+  <script>
+    const damageTable = {
+      sheet_door:      { hp: 250, c4: 1, rocket: 2, exp_ammo: 63 },
+      garage_door:     { hp: 600, c4: 2, rocket: 3, exp_ammo: 150 },
+      armored_door:    { hp: 800, c4: 2, rocket: 4, exp_ammo: 200 },
+      wood_wall:       { hp: 200, c4: 1, rocket: 1, exp_ammo: 40 },
+      stone_wall:      { hp: 500, c4: 2, rocket: 4, exp_ammo: 185 },
+      metal_wall:      { hp: 1000, c4: 4, rocket: 8, exp_ammo: 400 },
+      armored_wall:    { hp: 2000, c4: 8, rocket: 15, exp_ammo: 800 }
+    };
+
+    const targetSelect = document.getElementById("target");
+    const resultBox = document.getElementById("result");
+
+    targetSelect.addEventListener("change", () => {
+      const value = targetSelect.value;
+      const data = damageTable[value];
+      resultBox.innerHTML = `
+        ❤️ Прочность: ${data.hp} HP<br>
+        💣 C4: ${data.c4}<br>
+        🚀 Ракеты: ${data.rocket}<br>
+        🔫 Разрывные патроны: ${data.exp_ammo}
+      `;
+    });
+  </script>
+</body>
+</html>
